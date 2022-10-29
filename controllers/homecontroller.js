@@ -1,4 +1,4 @@
-const { getAllByDate, getRecent } = require('../services/courseService');
+const { getAll } = require('../services/coinService');
 
 const homeController = require('express').Router();
 
@@ -21,15 +21,17 @@ homeController.get('/', async (req, res) => {
     //    courses = await getRecent()
     //   
     //}
+    const coins = await getAll();
     res.render('home', {
         title:'Home page',
+        coins
        // user: req.user,
        //courses,
        //search: req.query.search
-       
     });
     
 });
+
 
 
 
